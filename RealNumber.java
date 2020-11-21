@@ -25,6 +25,6 @@ public class RealNumber {
 		return false;
 	}
 	public String toString() {
-		return ""+value;
+		return ""+getValue();
 	}
 }
