@@ -21,7 +21,7 @@ public class RealNumber {
 	public boolean equals(RealNumber other) {
 		if (value == 0) return other.getValue() == 0;
 		double diff = Math.abs(other.getValue() - value);
-		if (diff == 0 || (diff / value < 0.00001 && diff / other.getValue() < 0.00001)) return true;
+		if (diff == 0 || (diff / value <= 0.00001 && diff / other.getValue() <= 0.00001)) return true;
 		return false;
 	}
 	public String toString() {

@@ -8,7 +8,7 @@ public class RationalNumber extends RealNumber {
 		reduce();
 	}
 	public double getValue() {
-		return numerator / denominator;
+		return (double) numerator / denominator;
 	}
 	public int getNumerator() {
 		return numerator;
@@ -41,9 +41,11 @@ public class RationalNumber extends RealNumber {
 		}
 	}
 	private void reduce() {
-		int gcd = gcd(numerator, denominator);
-		numerator = numerator / gcd;
-		denominator = denominator / gcd;
+		//boolean negative = numerator < 0 ^ denominator < 0; // future me: ^ is xor
+		boolean negative = (numerator < 0 || denominator < 0) && !(numerator < 0 && denominator < 0);
+		int gcd = gcd(Math.abs(numerator), Math.abs(denominator));
+		numerator = (negative ? -1 : 1) * Math.abs(numerator) / gcd;
+		denominator = Math.abs(denominator) / gcd;
 	}
 	public RationalNumber multiply(RationalNumber other) {
 		return new RationalNumber(numerator * other.getNumerator(), denominator * other.getDenominator());
