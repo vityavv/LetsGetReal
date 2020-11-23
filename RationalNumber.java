@@ -5,7 +5,7 @@ public class RationalNumber extends RealNumber {
 		super(0.0);
 		numerator = nume;
 		denominator = deno;
-		reduce();
+		if (numerator != 0) reduce();
 	}
 	public double getValue() {
 		return (double) numerator / denominator;
@@ -23,9 +23,9 @@ public class RationalNumber extends RealNumber {
 		return numerator == other.getNumerator() && denominator == other.getDenominator();
 	}
 	public String toString() {
-		//TODO: ask if this is necessary:
-		//if (numerator == 0) return "0";
-		return numerator + "/" + denominator;
+		if (numerator == 0) return "0";
+		if (denominator == 1) return ""+numerator;
+		return "" + numerator + "/" + denominator;
 	}
 	private static int gcd(int a, int b) {
 		while (true) {

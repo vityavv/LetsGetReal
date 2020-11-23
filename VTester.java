@@ -29,6 +29,9 @@ public class VTester {
 		test("RationalNumber.add", twoThirds.add(oneQuarter).equals(new RationalNumber(11, 12)));
 		test("RationalNumber.subtract", twoThirds.subtract(oneQuarter).equals(new RationalNumber(5, 12)));
 		test("RationalNumber.toString", fourSixths.toString().equals("2/3"));
+
+		test("RationalNumber.toString", new RationalNumber(0, 44).toString().equals("0"));
+		test("RationalNumber.toString", new RationalNumber(44, 1).toString().equals("44"));
 	}
 	public static void test(String name, boolean worked) {
 		if (!worked) {
